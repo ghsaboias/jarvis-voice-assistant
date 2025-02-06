@@ -38,6 +38,14 @@ jarvis-assistant/
 - **Python Version:** 3.11 or higher
 - **Browser:** Brave Browser
 
+### Core Libraries
+
+The assistant uses several key Python libraries:
+
+- **SpeechRecognition**: Converts spoken words to text using Google's Speech Recognition API
+- **PyAudio**: Handles microphone input capture for speech recognition
+- **pyttsx3**: Provides text-to-speech functionality for assistant responses
+
 ### Python Dependencies
 
 Install the required Python packages using:
@@ -74,6 +82,15 @@ The assistant is configured through several components:
 - `BraveController`: Manages browser interactions
 - `MacVoiceAssistant`: Core assistant functionality
 
+## Voice Processing
+
+The assistant uses a pipeline of voice processing components:
+
+1. **Speech Input**: PyAudio captures microphone input
+2. **Speech Recognition**: Google's Speech Recognition API converts audio to text
+3. **Command Processing**: Pattern matching identifies and validates commands
+4. **Text-to-Speech**: pyttsx3 converts responses to spoken audio
+
 ## Logging
 
 The assistant logs to both console and `voice_assistant.log`, including:
@@ -83,12 +100,12 @@ The assistant logs to both console and `voice_assistant.log`, including:
 - Error handling
 - System interactions
 
-## Notes
+## System Requirements
 
-- Uses AppleScript for system interaction
-- Requires microphone access
-- Network connection needed for speech recognition
-- Brave Browser must be installed
+- Microphone access permissions
+- Network connection for speech recognition
+- Brave Browser installation
+- macOS system permissions for automation
 
 ## License
 
