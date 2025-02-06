@@ -1,6 +1,6 @@
-# Mac Voice Assistant
+# Jarvis Assistant
 
-This project is a simple voice assistant designed for macOS. It uses speech recognition and text-to-speech to interact with your computer. The assistant can perform tasks such as:
+This project is a voice assistant named Jarvis, designed for macOS. It uses speech recognition and text-to-speech to interact with your computer. The assistant can perform tasks such as:
 
 - Opening new tabs in Brave Browser
 - Navigating to websites
@@ -12,7 +12,7 @@ This project is a simple voice assistant designed for macOS. It uses speech reco
 ## Project Structure
 
 ```
-mac-voice-assistant/
+jarvis-assistant/
 ├── src/                      # Source code
 │   ├── browser/             # Browser control
 │   │   ├── __init__.py
