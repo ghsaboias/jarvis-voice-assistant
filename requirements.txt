@@ -1,0 +1,4 @@
+# Speech recognition
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.13  # Required for microphone input
+pyttsx3>=2.90    # Text to speech

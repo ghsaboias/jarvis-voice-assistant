@@ -2,71 +2,100 @@
 
 This project is a simple voice assistant designed for macOS. It uses speech recognition and text-to-speech to interact with your computer. The assistant can perform tasks such as:
 
-- Telling the current time
-- Opening applications (e.g., Brave Browser, Safari, Google Chrome, Finder)
-- Performing web searches using your default browser
-- Adjusting system volume via AppleScript
+- Opening new tabs in Brave Browser
+- Navigating to websites
+- Performing web searches using your default search engine
+- Searching YouTube directly
+- Managing browser tabs
 - Logging activity for debugging purposes
+
+## Project Structure
+
+```
+mac-voice-assistant/
+├── src/                      # Source code
+│   ├── browser/             # Browser control
+│   │   ├── __init__.py
+│   │   └── brave_controller.py
+│   ├── commands/            # Command parsing
+│   │   ├── __init__.py
+│   │   └── command_parser.py
+│   ├── handlers/            # System interactions
+│   │   ├── __init__.py
+│   │   └── apple_script_handler.py
+│   └── voice/              # Voice assistant core
+│       ├── __init__.py
+│       └── voice_assistant.py
+├── main.py                  # Entry point
+├── requirements.txt         # Dependencies
+├── USER_FLOWS.md           # Command documentation
+└── voice_assistant.log     # Activity logs
+```
 
 ## Requirements
 
 - **Operating System:** macOS
-- **Python Version:** 3.6 or higher
+- **Python Version:** 3.11 or higher
+- **Browser:** Brave Browser
 
-### Python Libraries
-
-- `speech_recognition`
-- `pyttsx3`
-- `pyaudio` *(or an alternative for handling audio input)*
-- Standard libraries: `datetime`, `webbrowser`, `subprocess`, etc.
-
-## Installation
+### Python Dependencies
 
 Install the required Python packages using:
 
 ```bash
-pip install speechrecognition pyttsx3 pyaudio
+pip install -r requirements.txt
 ```
-
-*Note: You might need to use `pip3` instead of `pip` depending on your system configuration.*
 
 ## Running the Voice Assistant
 
-To start the voice assistant, simply run the following command in your terminal:
+To start the voice assistant:
 
 ```bash
 python main.py
 ```
 
-*Note: Replace `python` with `python3` if necessary.*
+## Usage
+
+The assistant responds to voice commands prefixed with the wake word "Jarvis". See `USER_FLOWS.md` for a complete list of available commands and their variations.
+
+Example commands:
+
+- "Jarvis navigate to youtube"
+- "Jarvis search python tutorials"
+- "Jarvis youtube search cats"
+- "Jarvis new tab"
+- "Jarvis close tab"
 
 ## Configuration
 
-The main configuration for the assistant is located in the `MacVoiceAssistant` class within `main.py`. You can adjust parameters such as:
+The assistant is configured through several components:
 
-- **Wake Word:** Default is `"computer"`.
-- **Voice Speed:** Controlled by the `voice_speed` setting.
-- **Volume:** Controlled by the `volume` setting.
-- **Voice ID:** Change the TTS voice if desired.
-
-During startup, the assistant adjusts for ambient noise and begins listening for commands. For testing purposes, all non-empty voice input is processed without requiring the wake word.
+- `CommandTriggers`: Defines command patterns
+- `BraveController`: Manages browser interactions
+- `MacVoiceAssistant`: Core assistant functionality
 
 ## Logging
 
-The assistant logs detailed information to both the console and a file named `voice_assistant.log`. These logs include debugging, error messages, and activity details.
+The assistant logs to both console and `voice_assistant.log`, including:
+
+- Command processing
+- Speech recognition
+- Error handling
+- System interactions
 
 ## Notes
 
-- This assistant is tailor-made for macOS and uses system-specific scripts (e.g., `osascript`) to control applications and adjust volume.
-- Make sure your microphone is connected and properly configured.
-- If you encounter issues with voice recognition or text-to-speech, check your network connection and library installations.
+- Uses AppleScript for system interaction
+- Requires microphone access
+- Network connection needed for speech recognition
+- Brave Browser must be installed
 
 ## Troubleshooting
 
-- **Microphone Issues:** Ensure your microphone is working and accessible.
-- **Text-to-Speech Problems:** Verify that `pyttsx3` is installed and properly configured.
-- **Application Launch Failures:** Confirm that the application names in your voice commands match those recognized by the assistant.
-- **Volume Control:** The volume adjustment uses AppleScript, so ensure your system permits these operations.
+- **Speech Recognition Issues:** Check microphone and network connection
+- **Browser Control:** Ensure Brave Browser is installed and accessible
+- **Permission Issues:** Grant necessary system permissions
+- **Import Errors:** Verify all dependencies are installed
 
 ## License
 
