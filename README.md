@@ -90,13 +90,6 @@ The assistant logs to both console and `voice_assistant.log`, including:
 - Network connection needed for speech recognition
 - Brave Browser must be installed
 
-## Troubleshooting
-
-- **Speech Recognition Issues:** Check microphone and network connection
-- **Browser Control:** Ensure Brave Browser is installed and accessible
-- **Permission Issues:** Grant necessary system permissions
-- **Import Errors:** Verify all dependencies are installed
-
 ## License
 
 This project is open-source. Feel free to modify and distribute it.
